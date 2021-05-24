@@ -14,10 +14,17 @@ The downfall that I see to this is that it would be difficult to track the profi
   <li> The profit of bacon is negative. </li>
 </ul>
 
-The company is thinking or removing bacon from the menu, however what if the people who buy Belgium Waffles mainly adds the bacon customization. Furthermore, the customer sentiment is that the “Belgium Waffle isn’t worth it without the bacon”. Removing bacon could potentially do more harm than good. There are two solutions to the Bacon Profit Paradox:
+The company is thinking of removing bacon from the menu, however what if the people who buy Belgium Waffles mainly add the bacon customization. Furthermore, the customer sentiment is that the “Belgium Waffle isn’t worth it without the bacon”. Removing bacon could potentially do more harm than good. There are two solutions to the "Bacon Profit Paradox":
 <ul>
   <li> Take the profit hit because other items are making up for it. </li>
   <li> Increase the price of bacon to be <b>AT LEAST</b> 0 profit. </li>
 </ul>
 
 <i>I think these cases can generally be ignored since tracking combinations is an unsustainable venture. The restaurant will have a set of customizables and base items. The number of customization “pairs” could be ESTIMATED by: </i>
+
+<p align='center'>
+    <img align='center' width='250' src="https://render.githubusercontent.com/render/math?math=\textrm{Pairs} = \textrm{Base Items} \cdot \sum_{k=1}^{C}{C \choose k}"> 
+</p>
+
+<i>If you had 10 base items and 5 customizables, that would be 310 pairs. <b>This formula can’t be taken as fact because there are some pairs that don’t make sense in regard to the likelihood of it being ordered (Coffee + Bacon)</b></i>. 
+
