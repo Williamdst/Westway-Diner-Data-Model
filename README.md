@@ -7,7 +7,7 @@
 </ul>
 
 <p align='center'>
-    <img src="./Westway-.png" align='center' width="550" />
+    <img src="./West-Way-Model.png" align='center' width="550" />
     <p align='center'> Figure 2. Entity Relationship Diagram of the Database </p>
 </p>
 
