@@ -43,7 +43,7 @@ WHERE
 
 
 <h2> DS. Williams Commentary </h2>
-The two issues that I saw up front was how to map customizations and ingredients to food items. For example, there may be customizations that are “set in stone” such as Belgium Waffles + Bacon, but we need to think about how to charge customers that go “off script”, for example Belgium Waffles + Every Fruit. My solution to both problems is to store every customization as a food item and change the way orders are documented. By storing all the customizations separate we can track the profits of the customizations as well. <br />
+The two issues that I saw up front was how to map customizations and ingredients to food items. For example, there may be customizations that are “set in stone” such as Belgium Waffles + Bacon, but we need to think about how to charge customers that go “off script”, for example Belgium Waffles + Every Fruit. My solution to both problems is to store every customization as a food item and change the way orders are documented. By storing all the customizations separate we can track the profits of the customizations as well. <br></br>
 
 The downfall that I see to this is that it would be difficult to track the profit of “pairs”  of items such as Belgium + Bacon. Tracking pairs could be important; picture this:
 <ul>
