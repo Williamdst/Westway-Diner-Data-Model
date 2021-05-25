@@ -1,4 +1,4 @@
-# Westway-Diner-Data-Model
+<h1>Westway-Diner-Data-Model</h1>
 
 <b>You are working at a restaurant and the owner wants to track the profit and profit margin of the menu at the item level. Build the data infrastructure required to answer the owner’s question.</b>
 <ul>
@@ -6,6 +6,33 @@
   <li> Meals don’t necessarily use whole ingredients. For example, a sandwich could use half of a tomato. </li>
 </ul>
 
+```sql
+WITH production_cost AS (
+    SELECT
+      food_id,
+      SUM(weight_in_units * unit_cost) AS cost_to_make
+    FROM recipes
+    LEFT JOIN ingredients
+    USING (ingredient_id)
+    GROUP BY food_id
+)
+SELECT
+  food_id,
+  food_name,
+  SUM(quantity * (price - cost_to_make)) AS profit,
+  SUM(quantity * (price - cost_to_make)) * 100 / SUM(total) AS profit_margin
+FROM orders
+LEFT JOIN production_cost
+USING (food_id)
+LEFT JOING food_items
+USING (food_id)
+GROUP BY food_id, food_name
+WHERE order_time BETWEEN '' AND ''
+```
+
+
+
+<h2> DS. Williams Commentary </h2>
 The two issues that I saw up front was how to map customizations and ingredients to food items. For example, there may be customizations that are “set in stone” such as Belgium Waffles + Bacon, but we need to think about how to charge customers that go “off script”, for example Belgium Waffles + Every Fruit. My solution to both problems is to store every customization as a food item and change the way orders are documented. By storing all the customizations separate we can track the profits of the customizations as well. <br />
 
 The downfall that I see to this is that it would be difficult to track the profit of “pairs”  of items such as Belgium + Bacon. Tracking pairs could be important; picture this:
@@ -26,9 +53,12 @@ The company is thinking of removing bacon from the menu, however what if the peo
     <img align='center' width='250' src="https://render.githubusercontent.com/render/math?math=\textrm{Pairs} = \textrm{Base Items} \cdot \sum_{k=1}^{C}{C \choose k}"> 
 </p>
 
-<i>If you had 10 base items and 5 customizables, that would be 310 pairs. <b>This formula can’t be taken as fact because there are some pairs that don’t make sense in regard to the likelihood of it being ordered (Coffee + Bacon)</b></i>. 
+<i>If you had 10 base items and 5 customizables, that would be 310 pairs. <b>This formula can’t be taken as fact because there are some pairs that don’t make sense in regard to the likelihood of it being ordered (Coffee + Bacon)</b></i>. <br />
+  
+<hr>
 
-Things The Waiter & Customer Inteface Should Do Against the Database
+<h3> User Interface Ideas </h3>
+<b>Things The Waiter & Customer Inteface Should Do Against the Database</b>
 <ul>
   <li> What meals have specific item/s </li>
   <li> Show and filter nutrition facts </li>
@@ -37,12 +67,12 @@ Things The Waiter & Customer Inteface Should Do Against the Database
   <li> Update orders </li>
 </ul>
 
-Things that the Waiter Interface Should Do Against the Database
+<b>Things that the Waiter Interface Should Do Against the Database</b>
 <ul>
   <li> Visually track the layour of the restaurant, the customer_ids at the tables, and the orders </li>
 </ul>
 
-Things the Cook Interface Should Do Against the Database
+<b>Things the Cook Interface Should Do Against the Database</b>
 <ul>
   <li> Display the Ingredients of a all food items </li>
   <li> Display the ingredients of food items in a particular order </li>
