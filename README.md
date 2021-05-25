@@ -28,3 +28,26 @@ The company is thinking of removing bacon from the menu, however what if the peo
 
 <i>If you had 10 base items and 5 customizables, that would be 310 pairs. <b>This formula can’t be taken as fact because there are some pairs that don’t make sense in regard to the likelihood of it being ordered (Coffee + Bacon)</b></i>. 
 
+Things The Waiter & Customer Inteface Should Do Against the Database
+<ul>
+  <li> What meals have specific item/s </li>
+  <li> Show and filter nutrition facts </li>
+  <li> Show and filter meal_times (Breakfast, Lunch, Dinner) and by category </li>
+  <li> Track and update ingredient stock and dsiplay when they don't have a certain item </li>
+  <li> Update orders </li>
+</ul>
+
+Things that the Waiter Interface Should Do Against the Database
+<ul>
+  <li> Visually track the layour of the restaurant, the customer_ids at the tables, and the orders </li>
+</ul>
+
+Things the Cook Interface Should Do Against the Database
+<ul>
+  <li> Display the Ingredients of a all food items </li>
+  <li> Display the ingredients of food items in a particular order </li>
+  <li> Update the "order_completed" column of the orders table </li>
+</ul>
+
+
+
