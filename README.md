@@ -20,7 +20,7 @@ WITH production_cost AS (
       SUM(weight_in_units * unit_cost) AS cost_to_make
     FROM recipes
     LEFT JOIN ingredients
-    USING (ingredient_id)
+        USING (ingredient_id)
     GROUP BY food_id
 )
 SELECT
@@ -30,11 +30,14 @@ SELECT
   SUM(quantity * (price - cost_to_make)) * 100 / SUM(total) AS profit_margin
 FROM orders
 LEFT JOIN production_cost
-USING (food_id)
+    USING (food_id)
 LEFT JOIN food_items
-USING (food_id)
-GROUP BY food_id, food_name
-WHERE order_time BETWEEN '' AND ''
+    USING (food_id)
+GROUP BY 
+  food_id, 
+  food_name
+WHERE 
+  order_time BETWEEN '' AND ''
 ```
 
 
