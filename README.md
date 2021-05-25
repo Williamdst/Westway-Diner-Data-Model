@@ -6,6 +6,12 @@
   <li> Meals don’t necessarily use whole ingredients. For example, a sandwich could use half of a tomato. </li>
 </ul>
 
+<p align='center'>
+    <img src="./Westway-.png" align='center' width="550" />
+    <p align='center'> Figure 2. Entity Relationship Diagram of the Database </p>
+</p>
+
+
 ```sql
 WITH production_cost AS (
     SELECT
