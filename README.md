@@ -6,9 +6,10 @@
   <li> Meals don’t necessarily use whole ingredients. For example, a sandwich could use half of a tomato. </li>
 </ul>
 
+<h2> DS. Williams Data Model + Query </h2>
 <p align='center'>
-    <img src="./West-Way-Model.png" align='center' width="550" />
-    <p align='center'> Figure 2. Entity Relationship Diagram of the Database </p>
+    <img src="./West-Way-Model.png" align='center' width="1000" />
+    <p align='center'> Figure 1. Entity Relationship Diagram of the Database </p>
 </p>
 
 
@@ -30,7 +31,7 @@ SELECT
 FROM orders
 LEFT JOIN production_cost
 USING (food_id)
-LEFT JOING food_items
+LEFT JOIN food_items
 USING (food_id)
 GROUP BY food_id, food_name
 WHERE order_time BETWEEN '' AND ''
